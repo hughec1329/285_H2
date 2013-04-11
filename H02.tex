@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage{listings,fancyhdr,hyperref,graphicx,subfig}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{Page \thepage.}
+\fancyfoot[L]{Prepared for Old Mate | HCT Consulting}
+\renewcommand{\footrulewidth}{0.4 pt}
+\renewcommand{\headrulewidth}{0 pt}
+\hypersetup{colorlinks = true, linkcolor = blue, citecolor = blue}
+\begin{document}
+
+\begin{center}
+	\vspace*{0.3in}
+	\LARGE MGT 285 - Project \\ 
+	\Large \emph{Predicting Cow Body Condition Score from an Image} \\ 
+	\vspace{0.25in}
+	\normalsize \today  // Spring 2013 // Prof. Chih-Ling Tsai // UC Davis\\ 
+	\vspace{0.25in}
+	\textsc{Hugh Crockford\\Cathrine Misquitta\\Tracy Regis}
+	\vspace{0.1in}
+\end{center}
+
+
+	\tableofcontents
+
+	\renewcommand{\abstractname}{Executive Summary}
+	\begin{abstract}
+		The application of Image recognition and classification to dairy cow Body Condition Scoring is investigated.
+		The Python interface to openCV is used to extract image features, and machine learning/classification techniques within package scikit-learn are used to estimate cow Body condition score.
+	\end{abstract}
+
+\newpage
+\section{Introduction}
+		The US dairy industry produces \$140 Billion in economic output annually, and is California's top Agricultural output. \cite{cmab13}. 
+		In the US dairy cattle tend to be intensively managed in large groups, with high standards of feeding and animal husbandry resulting in very high levels of milk output per cow.
+		This high intensity production can cause various animal health problems, which will result in weight loss and reduced production.
+		Weight loss has been used for some time to identify subclinically diseased animals, however the difficulty in getting an accurate measurement and large day-to-day weight fluctuations due to feeding and watering mean actual weight is a poor predictor of body fat reserves \cite{Roche2004}.
+		To overcome this issue various body condition scoring systems have been developed to objectively measure fat cover at various locations, a more sensitive indicator of overall metabolic state \cite{Wildman1982}.
+		These scoring systems have proven an important management tool and accurate monitoring will improve animal health, milk production, and reproduction in the modern dairy cow \cite{Buckley2003}.
+
+
+
+		Body condition score (BCS) is traditionally been recorded by a trained observer over an 5 or 8 point scale\cite{Bewley2010}, but the time involved to collect and interpret this data has meant herd-wide BCS has rarely been used on commercial dairies.
+		For this reason there has been recent interest in the automation of BCS, and various techniques have been developed.
+
+
+
+		Bewley used landmarks and angles identified by hand on digital images of cattle to predict BCS using mixture models \cite{Bewley2008}, however the daily tagging of thousands of images in large farm would be unfeasible.
+		Hamachi investigated the use of a thermal camera to acquire a contour of the cow's rump and fit a parabola using polygon approximation. 
+		The equation and distance from the curve was used to estimate BCS, however low number of cattle and difficulty in automating this workflow limit the use of this technique \cite{Halachmi2008}. 
+		Arias used neural networks and automatic image recognition to extract morphologic features from a cow's body based on color differences \cite{Arias2004}. 
+
+
+		There is clearly scope for an accurate inexpensive computer vision system to classify cow BCS.
+		This project will investigate the post-processing of cow images, feature extraction, and machine learning techniques to classify a cow into a body condition class.  
+
+
+		The techniques developed from this project could also be utilised in the ~30 Billion beef cows in the United States\cite{USDA2013} and billions of cattle worldwide.
+
+		The Research Objective is to investigate the application of computer vision and machine learning techniques to Body Condition Score dairy cattle.
+		The study hypothesis is that these techniques will provide a fast, accurate, cost effective technique to BCS a dairy herd and prove a valuable management aid.
+
+
+\newpage
+	\section{Data Characteristics)
+		The data approaches an asymtope at 100\%, as expected.
+\section{Results}
+\section{Conclus ion}
+	My brief research into computer vision with python has revealed the capabilities and limitations of various techniques, and I anticipate returning to the VMTRC in the summer to collect images and apply these techniques.\\
+%	Provided a reliable, accurate, and cheap system could be developed, there is definitely a market among the large dairy farms in California and Worldwide.
+
+	Future directions for this project to explore include:
+	\begin{itemize}
+		\item The combination of multiple cameras to get a 3d 'stereo' view of cow. This would allow depth measurements to be computed, giving an indication of the fat fill between landmarks.
+			Using our current 2d method we are relying on hollow areas been darker due to shading, and indirectly modelling depth.
+		 	This could also be manipulated by positioning lights around the image capture area to intensify these shadows and hence get a more accurate representation of depth.
+		\ item Using a Microsoft Kinect sensor would also provide this depth information, and is a cheap and proven method for 3d modelling.
+			There are numerous libraries and developer kits available for 3d modelling with the kinect, and the ready availability and low cost of the device make this an attractive option.
+		\item The use of single/multiple video monitors. This would eliminate the need for infrared triggers to operate camera, a function could be written to detect when a cow is present in the frame and then select the best image from the video feed. Multiple frames could also be measured and the classification combined to improve prediction accuracy.
+		\item Expansion of cow recognition techniques to diagnose lameness in dairy cattle. Lame cows walk slowly with an arched back and short gait, and measurement of spine angle and stride length are predictive of lameness score \cite{Viazzi2013,Pluk2012}. The techniques above could be adapted to measure these variables and predict lameness score.
+		\item The combination of above techniques with cow recognition by coat color. This would remove reliance on finicky RFID detectors for cow ID but assumes that each cow has a significantly different coat pattern to allow accurate identification.
+	\end{itemize}
+
+	Integration of these techniques with herd management software and automatic drafting gates would provide dairyman with a valuable management tool and improve animal health and production worldwide.
+
+	\newpage
+
+\section{Code}
+
+\newpage
+% \bibliographystyle{unsrt}
+% \bibliography{ebcs}
+
+
+\end{document}
