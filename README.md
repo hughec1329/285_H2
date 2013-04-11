@@ -1,14 +1,14 @@
 242_H2
 ======
 
-MGT 285 H02 - cell phone usage
+# MGT 285 H02 - cell phone usage
 
-==story ideas - angles
+##story ideas - angles
+- cell phone makers
+- cell service providors.
+- NEED strong conclusion - stress what impact will be. 
 
-cell phone makers
-cell service providors.
-NEED strong conclusion - stress what impact will be. 
-==models
+##models
 
-only comment on ONE model, others in appendix to explain how we got to that conclusion. # S curve (logistic)
-try # diff # linear.
+- only comment on ONE model, others in appendix to explain how we got to that conclusion. # S curve (logistic)
+ - try # diff # linear.
